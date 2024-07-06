@@ -19,21 +19,21 @@ describe('card', function() {
 });
 
 describe('checks card for correct answer', function() {
-  it.skip('should be a function', function() {
+  it('should be a function', function() {
     expect(evaluateGuess).to.be.a('function');
   });
 
-  it.skip('should be able to evaluate a correct answer', function() {
+  it('should be able to evaluate a correct answer', function() {
     const card = createCard(2, 'What is a comma-separated list of related values?', ['array', 'object', 'function'], 'array');
 
-    card.inputAnswer = 'array';
+    let guess = 'array';
 
-    const checkAnswer = evaluateGuess(card);
+    const checkAnswer = evaluateGuess(guess, 'array');
 
     expect(checkAnswer).to.equal('Correct!')
   });
 
-  it.skip('should be able to evaluate an incorrect answer', function() {
+  it('should be able to evaluate an incorrect answer', function() {
     const card = createCard(13, 'The callback function for map() returns a modified version of the current element.', ['true', 'false'], 'true');
 
     card.inputAnswer = 'false';

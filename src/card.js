@@ -9,6 +9,7 @@ function createCard(cardId = 'no input', cardQuestion = 'no input', possibleAnsw
 };
 
 function evaluateGuess(guess, correctAnswer) {
+  // console.log('in eval func:', guess, correctAnswer)
   if (guess === '') {
     return
   } else if (guess !== correctAnswer) {
