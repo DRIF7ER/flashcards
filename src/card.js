@@ -12,10 +12,8 @@ function evaluateGuess(guess, correctAnswer) {
   if (guess === '') {
     return
   } else if (guess !== correctAnswer) {
-    // console.log('Incorrect!');
     return 'Incorrect!';
   } else if (guess === correctAnswer) {
-    // console.log('Correct!')
     return 'Correct!';
   };
 };

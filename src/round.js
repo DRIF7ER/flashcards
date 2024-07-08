@@ -1,34 +1,57 @@
-// round will organize guesses and records correct
-// incorrect answers.
-
 const { createCard, evaluateGuess } = require("./card");
 const { createDeck, countCards } = require("./deck");
 
-// ROUND OBJECT:
-// round stuff will return an object that holds a deck property, a
-// currentCard property, a turns prop, and an
-// incorrectGuesses prop.
+function createRound (aDeck) {
+	let aRound = {
+		deck: aDeck,
+		currentCard: [],
+		turns: 0,
+		incorrectGuesses: []
+	};
+	if (aRound.currentCard.length === 0) {
+		aRound.currentCard.push(aDeck.cards[0]);
+	};
+	return aRound;
+};
 
-// TAKE A TURN:
-// updates the turns count, evaluates guesses, gives feedback, and
-// stores ids of incorrect guesses.
-// when a guess is made: - turn count updates
-// - next card becomes current
-// - guess is evaluated, wrongs will be stored in an array by id
-// - feedback about guess is returned
+function takeTurn(aGuess, aRound) {
+	let resultOfGuess = evaluateGuess(aGuess, aRound.currentCard[0].correctAnswer);
+	aRound.turns++;
+	if (resultOfGuess === 'Incorrect!') {
+		aRound.incorrectGuesses.push(aRound.currentCard[0]);
+	};
+	const cardIndex = aRound.deck.cards.indexOf(aRound.currentCard[0]);
+	aRound.currentCard = [aRound.deck.cards[cardIndex + 1]];
+	return resultOfGuess;
+};
 
-// CALCULATE PERCENT CORRECT:
-// self explainitory.
+function calculatePercentCorrect(aRound) {
+	let correctPercent = ((aRound.turns - aRound.incorrectGuesses.length) / aRound.turns) * 100;
+	return correctPercent;
+};
 
-// END ROUND:
-// prints, ‘** Round over! ** You answered <>% of
-// the questions correctly!’ to console.
-
+function endRound (aRound) {
+	let correctPercent = calculatePercentCorrect(aRound);
+	if(aRound.turns !== 30) {
+		console.log('in end round func:', aRound.turns)
+		return
+	} else {
+		console.log(`
+			***************************************************************
+			*+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+*
+			** ROUND OVER! ** YOU ANSWERED ${correctPercent}% OF THE QUESTIONS CORRECTLY!*
+			*=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=*
+			***************************************************************
+		`);
+		return `** Round over! ** You answered ${correctPercent}% of the questions correctly!`;
+	};
+};
 
 
 
 module.exports = {
 	createRound,
-	// takeTurn,
-	// calculatePercentCorrect,
+	takeTurn,
+	calculatePercentCorrect,
+	endRound,
 }

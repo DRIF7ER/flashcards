@@ -3,8 +3,12 @@ const { takeTurn, endRound } = require('./round');
 
 const genList = (round) => {
   let card = round.currentCard;
+  if (round.turns === 30) {
+    endRound(round);
+    return;
+  };
   
-  let choices = card.answers.map((answer, index) => {
+  let choices = card[0].answers.map((answer, index) => {
     return {
       key: index,
       value: answer
@@ -12,7 +16,7 @@ const genList = (round) => {
   });
   return {
     type: 'rawlist',
-    message: card.question,
+    message: card[0].question,
     name: 'answers',
     choices: choices
   };
