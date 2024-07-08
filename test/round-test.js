@@ -14,8 +14,6 @@ describe('make a round', function() {
     const card1 = createCard(5, 'What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?', ['mutator method', 'accessor method', 'iteration method'], 'iteration method');
     const card2 = createCard(10, 'Which iteration method returns the first array element where the callback function returns true', ['find()', 'filter()', 'forEach()'], 'find()');
     const card3 = createCard(15, 'The callback function for reduce() takes in an accumulator and a current element.', ['true', 'false'], 'true');
-    // const card4 = createCard(20, 'forEach() returns an array', ['true', 'false'], 'false');
-    // const card5 = createCard(25, 'Arrays are specialized objects where the keys are ordered numbers.', ['true', 'false'], 'true');
 
     let deck = createDeck([card1, card2, card3]);
 
@@ -39,8 +37,6 @@ describe('take a turn', function() {
     const card1 = createCard(5, 'What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?', ['mutator method', 'accessor method', 'iteration method'], 'iteration method');
     const card2 = createCard(10, 'Which iteration method returns the first array element where the callback function returns true', ['find()', 'filter()', 'forEach()'], 'find()');
     const card3 = createCard(15, 'The callback function for reduce() takes in an accumulator and a current element.', ['true', 'false'], 'true');
-    // const card4 = createCard(20, 'forEach() returns an array', ['true', 'false'], 'false');
-    // const card5 = createCard(25, 'Arrays are specialized objects where the keys are ordered numbers.', ['true', 'false'], 'true');
 
     let deck = createDeck([card1, card2, card3]);
 
@@ -57,8 +53,6 @@ describe('take a turn', function() {
     const card1 = createCard(5, 'What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?', ['mutator method', 'accessor method', 'iteration method'], 'iteration method');
     const card2 = createCard(10, 'Which iteration method returns the first array element where the callback function returns true', ['find()', 'filter()', 'forEach()'], 'find()');
     const card3 = createCard(15, 'The callback function for reduce() takes in an accumulator and a current element.', ['true', 'false'], 'true');
-    // const card4 = createCard(20, 'forEach() returns an array', ['true', 'false'], 'false');
-    // const card5 = createCard(25, 'Arrays are specialized objects where the keys are ordered numbers.', ['true', 'false'], 'true');
 
     let deck = createDeck([card1, card2, card3]);
 
